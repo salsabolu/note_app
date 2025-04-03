@@ -38,14 +38,12 @@ class NoteDatabase {
   Future<Note> create(Note note) async {
     final db = await instance.database;
     final id = await db.insert(tableNotes, note.toJson());
-
     return note.copy(id: id);
   }
 
   Future<List<Note>> getAllNotes() async {
     final db = await instance.database;
     final result = await db.query(tableNotes);
-
     return result.map((json) => Note.fromJson(json)).toList();
   }
 
@@ -66,7 +64,6 @@ class NoteDatabase {
 
   Future<int> deleteNoteById(int id) async {
     final db = await instance.database;
-
     return await db.delete(
       tableNotes,
       where: '${NoteFields.id} = ?',
@@ -76,7 +73,6 @@ class NoteDatabase {
 
   Future<int> updateNote(Note note) async {
     final db = await instance.database;
-
     return await db.update(
       tableNotes,
       note.toJson(),
