@@ -85,7 +85,15 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
           backgroundColor: WidgetStatePropertyAll(const Color(0xFFEEEEEE)),
           padding: WidgetStatePropertyAll(EdgeInsets.all(4)),
           shape: WidgetStatePropertyAll(
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20),),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          ),
+        ),
+        child: Text(
+          'Save',
+          style: GoogleFonts.nunitoSans(
+            color: Colors.black,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
           ),
         ),
         onPressed: () async {
@@ -102,14 +110,6 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
             Navigator.pop(context);
           }
         },
-        child: Text(
-          'Save',
-          style: GoogleFonts.nunitoSans(
-            color: Colors.black,
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
       ),
     );
   }
